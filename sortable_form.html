@@ -1,0 +1,73 @@
+<!-- ref: https://qiita.com/michimani/items/71a0d25c7f018a0d245b -->
+
+<!--  ***************************************
+      * Usage
+      *************************************** -->
+<h2>sort form by drag and drop</h2>
+<p>
+* put sort-id in element of `tr`
+<br>
+* add sort id by `$("#sort_id").val(ary_ids);`
+</p>
+
+
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+
+
+<!--  ***************************************
+      * js
+      *************************************** -->
+<script>
+$(function() {
+  $('#sortable-table').sortable({
+    items: 'tr',
+    cursor: 'move',
+    opacity: 0.5
+  });
+  $('#sortable-first').disableSelection();
+  $("#submit").click(function() {
+    var ary_ids = $("#sortable-table").sortable("toArray");
+    $("#sort_id").val(ary_ids);
+    $("form").submit();
+  });
+});
+</script>
+
+<!--  ***************************************
+      * html
+      *************************************** -->
+
+<table id="sortable-table">
+　<tr id="1">
+    　　<td>ドラッグ</td>
+    　　<td>ドラッグ</td>
+    　　<td>ドラッグ</td>
+    　</tr>
+  　<tr id="2">
+    　　<td>アンド</td>
+    　　<td>アンド</td>
+    　　<td>アンド</td>
+    　</tr>
+  　<tr id="3">
+    　　<td>ドロップ</td>
+    　　<td>ドロップ</td>
+    　　<td>ドロップ</td>
+    　</tr>
+　<tr id="4">
+　　<td>移動できる</td>
+　　<td>移動できる</td>
+　　<td>移動できる</td>
+　</tr>
+　<tr id="5">
+　　<td>テーブルです</td>
+　　<td>テーブルです</td>
+　　<td>テーブルです</td>
+　</tr>
+</table>
+
+<form action="#" method="get">
+  <input type="hidden" id="sort_id" name="sort_id" />
+  <button id="submit">submit</button>
+</form>
