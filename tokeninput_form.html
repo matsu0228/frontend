@@ -1,0 +1,63 @@
+<!-- 
+  ref: https://github.com/loopj/jquery-tokeninput
+-->
+
+<!--  ***************************************
+      * Usage
+      *************************************** -->
+<h2>jQuery token input: Tokenizing Autocomplete Text Entry</h2>
+<p>
+* 
+</p>
+
+
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="./src/tokeninput/js/jquery.tokeninput.min.js"></script>
+<!-- <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script> -->
+
+<link rel="stylesheet" src="./src/tokeninput/css/token-input-facebook.css" type="text/css">
+
+
+<!--  ***************************************
+      * js
+      *************************************** -->
+<script>
+  $(document).ready(function() {
+    $("#tokeninput-demo").tokenInput("./src/tokeninput/tokeninput_data.json", {
+        theme: "facebook"
+    });
+  });
+</script>
+
+<!--  ***************************************
+      * html
+      *************************************** -->
+
+<h2 id="instant-demo">Instant Demo</h2>
+<p><input type="text" id="tokeninput-demo"></p>
+
+<script>
+var words = [];
+$(document).ready(function(){
+  $("#js-submit-btn").click(function(){
+    words = $('#tokeninput-demo').val().split(",");
+    //$("#review_word_list").empty();
+    for(i=0;i<words.length;i++){
+      $("#review_word_list").append('<li><a id='+words[i].toString().trim()+' class="wordButton btn btn-primary">'+words[i].toString().trim()+'</li>');
+    }
+    console.log(words);
+    //document.getElementById("review_word_list").style.display = "none";
+
+    $.ajax({
+      type:'GET',
+      url:'/**/',
+      contentType: 'application/json',
+      dataType: 'json',
+      data: { 'words': words,
+        'product': product },
+      success : function(response){
+      }
+    });
+  });
+});
+</script>

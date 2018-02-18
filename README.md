@@ -5,3 +5,6 @@
 
 - sort form by drag and drop
   - <a href="https://matsu0228.github.io/frontend/sortable_form.html"> demo </a>
+
+- tokeinput form
+  - <a href="https://matsu0228.github.io/frontend/tokeninput_form.html"> demo </a>
