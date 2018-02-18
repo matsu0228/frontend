@@ -45,7 +45,7 @@ $(document).ready(function() {
       *************************************** -->
 
 <h2 id="instant-demo">Instant Demo</h2>
-<form action="#">
+<form id="js-form-tokeninput" action="#">
 <p><input type="text" id="tokeninput-demo"></p>
 
 <ul class="tag-list" style="padding: 5px; " id="review_word_list" style="display: none;"></ul>
@@ -57,7 +57,15 @@ var words = [];
 $(document).ready(function(){
   $("#js-submit-btn").click(function(){
     words = $('#tokeninput-demo').val().split(",");
-    console.log(words);
+    if (words !== undefined) {
+      var form = document.getElementById('js-form-tokeninput');
+      var input = document.createElement('input');
+      input.setAttribute('type', 'hidden');
+      input.setAttribute('name', 'words');
+      input.setAttribute('value', words);
+      form.appendChild(input);
+    }
+
     // $("#review_word_list").empty();
     // for(i=0;i<words.length;i++){
     //   $("#review_word_list").append('<li><a id='+words[i].toString().trim()+' class="wordButton btn btn-primary">'+words[i].toString().trim()+'</li>');
