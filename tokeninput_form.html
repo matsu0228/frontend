@@ -10,26 +10,25 @@
 <script src="https://matsu0228.github.io/frontend/src/tokeninput/js/jquery.tokeninput.min.js"></script>
 <!-- <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.js"></script> -->
 
-<link rel="stylesheet" src="https://matsu0228.github.io/frontend/src/tokeninput/css/token-input.css" type="text/css">
+<!-- <link rel="stylesheet" src="https://matsu0228.github.io/frontend/src/tokeninput/css/token-input.css" type="text/css"> -->
 <link rel="stylesheet" src="https://matsu0228.github.io/frontend/src/tokeninput/css/token-input-facebook.css" type="text/css">
-
 
 <!--  ***************************************
       * js
       *************************************** -->
 <script>
-  $(document).ready(function() {
-    $("#tokeninput-demo").tokenInput(
-      "https://matsu0228.github.io/frontend/src/tokeninput/tokeninput_data.json", 
-      {
-        noResultsText: 'No results',
-        hintText: 'Search something, e.g. "price", "support", etc.',
-        theme: "facebook",
-        searchDelay: 500,
-        tokenLimit: 10,
-        resultsLimit: 10
-    });
+$(document).ready(function() {
+  $("#tokeninput-demo").tokenInput(
+    "https://matsu0228.github.io/frontend/src/tokeninput/tokeninput_data.json", 
+    {
+      noResultsText: 'No results',
+      hintText: 'Search something, e.g. "price", "support", etc.',
+      theme: "facebook",
+      searchDelay: 500,
+      tokenLimit: 10,
+      resultsLimit: 10
   });
+});
 </script>
 </head>
 
@@ -57,11 +56,12 @@ var words = [];
 $(document).ready(function(){
   $("#js-submit-btn").click(function(){
     words = $('#tokeninput-demo').val().split(",");
-    $("#review_word_list").empty();
-    for(i=0;i<words.length;i++){
-      $("#review_word_list").append('<li><a id='+words[i].toString().trim()+' class="wordButton btn btn-primary">'+words[i].toString().trim()+'</li>');
-    }
     console.log(words);
+    alert("submit");
+    // $("#review_word_list").empty();
+    // for(i=0;i<words.length;i++){
+    //   $("#review_word_list").append('<li><a id='+words[i].toString().trim()+' class="wordButton btn btn-primary">'+words[i].toString().trim()+'</li>');
+    // }
     //document.getElementById("review_word_list").style.display = "none";
     // $.ajax({
     //   type:'GET',
