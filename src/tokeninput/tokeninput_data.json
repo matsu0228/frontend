@@ -1,14 +1,14 @@
 [
 {
-id: "hoge1",
-name: "test1"
+"id": "hoge1",
+"name": "test1"
 },
 {
-id: "key2",
-name: "test2"
+"id": "key2",
+"name": "test2"
 },
 {
-id: "key3",
-name: "temp--2"
+"id": "key3",
+"name": "temp--2"
 }
 ]
